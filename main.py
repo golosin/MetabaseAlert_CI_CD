@@ -4,6 +4,7 @@ from datetime import datetime, timedelta
 import requests
 from copy import deepcopy
 import os
+import time
 
 
 # def get_credentials():
@@ -83,8 +84,9 @@ def app_function():
 
         url = "https://hooks.slack.com/services/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"
         response = requests.post(url, headers=headers, json=body)
-
         print(record_str)
+        time.sleep(5)
+
     except (Exception, Error) as error:
         print("Ошибка при работе с PostgreSQL", error)
     finally:

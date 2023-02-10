@@ -82,7 +82,6 @@ def app_function():
         headers = {"Content-Type": "application/json"}
 
         url = "https://hooks.slack.com/services/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"
-        print(url)
         response = requests.post(url, headers=headers, json=body)
 
         print(record_str)

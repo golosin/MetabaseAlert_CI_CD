@@ -6,18 +6,22 @@ from copy import deepcopy
 import os
 
 
+def get_credentials():
+    return{"user": os.environ["USER"],
+            "password": os.environ["PASSWORD"],
+            "host": os.environ["HOST"],
+            "database": os.environ["DATABASE"]}
+
+
 def app_function():
-    user = os.environ["USER"]
-    password = os.environ["PASSWORD"]
-    host = os.environ["HOST"]
-    database = os.environ["DATABASE"]
+    credentials = get_credentials()
 
     try:
-        connection = psycopg2.connect(user=user,
-                                      password=password,
-                                      host=host,
+        connection = psycopg2.connect(user=credentials["user"],
+                                      password=credentials["password"],
+                                      host=credentials["host"],
                                       port="5432",
-                                      database=database)
+                                      database=credentials["database"])
 
         cursor = connection.cursor()
         print("Информация о сервере PostgreSQL")

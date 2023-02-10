@@ -76,6 +76,15 @@ def app_function():
                 record_str += "".join([f"{key} ", f"{value} "])
             record_str += "".join("\n")
 
+        body = {
+            "text": record_str
+        }
+        headers = {"Content-Type": "application/json"}
+
+        url = "https://hooks.slack.com/services/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"
+        print(url)
+        response = requests.post(url, headers=headers, json=body)
+
         print(record_str)
     except (Exception, Error) as error:
         print("Ошибка при работе с PostgreSQL", error)
@@ -84,15 +93,6 @@ def app_function():
             cursor.close()
             connection.close()
             print("Соединение с PostgreSQL закрыто")
-
-            body = {
-                    "text": record_str
-                    }
-            headers = {"Content-Type": "application/json"}
-
-            url = "https://hooks.slack.com/services/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"
-            print(url)
-            response = requests.post(url, headers=headers, json=body)
 
 
 if __name__ == '__main__':

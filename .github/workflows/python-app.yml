@@ -31,4 +31,4 @@ jobs:
 
     - name: Test with pytest
       run: |
-        USER=${{ secrets.USER }} PASSWORD=${{ secrets.PASSWORD }} HOST=${{ secrets.HOST }} DATABASE=${{ secrets.DATABASE }} python main.py
+        USER=${{ secrets.USER }} PASSWORD=${{ secrets.PASSWORD }} HOST=${{ secrets.HOST }} DATABASE=${{ secrets.DATABASE }} URL=${{ secrets.SLACK_WEBHOOK_URL }} python main.py

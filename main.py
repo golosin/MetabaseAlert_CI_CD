@@ -4,14 +4,6 @@ from datetime import datetime, timedelta
 import requests
 from copy import deepcopy
 import os
-import time
-
-
-# def get_credentials():
-#     return{"user": os.environ["USER"],
-#             "password": os.environ["PASSWORD"],
-#             "host": os.environ["HOST"],
-#             "database": os.environ["DATABASE"]}
 
 
 def app_function():
@@ -77,16 +69,6 @@ def app_function():
                 record_str += "".join([f"{key} ", f"{value} "])
             record_str += "".join("\n")
 
-        body = {
-            "text": record_str
-        }
-        headers = {"Content-Type": "application/json"}
-
-        url = "https://hooks.slack.com/services/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"
-        response = requests.post(url, headers=headers, json=body)
-        print(record_str)
-        time.sleep(5)
-
     except (Exception, Error) as error:
         print("Ошибка при работе с PostgreSQL", error)
     finally:
@@ -94,6 +76,15 @@ def app_function():
             cursor.close()
             connection.close()
             print("Соединение с PostgreSQL закрыто")
+
+            body = {
+                "text": record_str
+            }
+            headers = {"Content-Type": "application/json"}
+
+            url = os.environ['SLACK_WEBHOOK_URL']
+            response = requests.post(url, headers=headers, json=body)
+            print(record_str)
 
 
 if __name__ == '__main__':

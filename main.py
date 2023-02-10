@@ -7,6 +7,7 @@ import os
 
 
 def app_function():
+    connection = ""
     try:
         connection = psycopg2.connect(user=os.environ['USER'],
                                       password=os.environ['PASSWORD'],

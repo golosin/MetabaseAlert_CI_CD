@@ -84,9 +84,10 @@ def app_function():
                 body = {"text": record_now}
                 headers = {"Content-Type": "application/json"}
 
-            url = os.environ['URL']
-            response = requests.post(url, headers=headers, json=body)
-            print(record_str)
+                url = os.environ['URL']
+                response = requests.post(url, headers=headers, json=body)
+            else:
+                return
 
 
 if __name__ == '__main__':

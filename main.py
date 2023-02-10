@@ -91,6 +91,7 @@ def app_function():
             headers = {"Content-Type": "application/json"}
 
             url = os.environ['URL']
+            print(url)
             response = requests.post(url, headers=headers, json=body)
 
 

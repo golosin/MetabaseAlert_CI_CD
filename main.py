@@ -3,11 +3,21 @@ from psycopg2 import Error
 from datetime import datetime, timedelta
 import requests
 from copy import deepcopy
+import os
 
 
 def app_function():
-    try:
+    user = os.environ["USER"],
+    password = os.environ["PASSWORD"]
+    host = os.environ["HOST"]
+    database = os.environ["DATABASE"]
 
+    try:
+        connection = psycopg2.connect(user=user,
+                                      password=password,
+                                      host=host,
+                                      port="5432",
+                                      database=database)
 
         cursor = connection.cursor()
         print("Информация о сервере PostgreSQL")
@@ -78,7 +88,7 @@ def app_function():
             #         }
             # headers = {"Content-Type": "application/json"}
             #
-            # 
+            # url = "https://hooks.slack.com/services/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"
             # response = requests.post(url, headers=headers, json=body)
 
 

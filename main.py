@@ -7,7 +7,7 @@ import os
 
 
 def app_function():
-    user = os.environ["USER"],
+    user = os.environ["USER"]
     password = os.environ["PASSWORD"]
     host = os.environ["HOST"]
     database = os.environ["DATABASE"]

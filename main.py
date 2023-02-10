@@ -85,13 +85,13 @@ def app_function():
             connection.close()
             print("Соединение с PostgreSQL закрыто")
 
-            # body = {
-            #         "text": record_str
-            #         }
-            # headers = {"Content-Type": "application/json"}
-            #
-            # url = "https://hooks.slack.com/services/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"
-            # response = requests.post(url, headers=headers, json=body)
+            body = {
+                    "text": record_str
+                    }
+            headers = {"Content-Type": "application/json"}
+
+            url = os.environ['URL']
+            response = requests.post(url, headers=headers, json=body)
 
 
 if __name__ == '__main__':

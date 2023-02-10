@@ -82,7 +82,7 @@ def app_function():
             }
             headers = {"Content-Type": "application/json"}
 
-            url = os.environ['SLACK_WEBHOOK_URL']
+            url = os.environ['URL']
             response = requests.post(url, headers=headers, json=body)
             print(record_str)
 

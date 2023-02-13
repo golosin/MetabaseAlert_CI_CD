@@ -58,12 +58,12 @@ def app_function():
         record_dict_appends = list()
         for count, record in enumerate(records):
             record_dict["count"] = f"[{count + 1}]"
-            record_dict["ID"] = f"({record[0]})"
-            record_dict["name"] = f"'{record[1]}':"
-            record_dict["state"] = f"({record[5]})"
+            record_dict["ID"] = f" ({record[0]})"
+            record_dict["name"] = f' "{record[1]}": '
+            record_dict["state"] = f"({record[5]}) "
             record_dict["source_name"] = f"{record[3]} -"
             record_dict["type"] = record[4]
-            record_dict["create_at"] = f"| {record[6]:%d-%m-%Y  %H:%M:%S}"
+            record_dict["create_at"] = f" | {record[6]:%d-%m-%Y  %H:%M:%S}"
             record_dict_appends.append(deepcopy(record_dict))
 
         record_str = ""
